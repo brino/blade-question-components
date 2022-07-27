@@ -4,8 +4,14 @@ namespace BladeQuestions\View\Components;
 
 use Illuminate\View\Component;
 
-class Input extends Component
+class Tooltip extends Component
 {
+    public $notch;
+
+    public function __construct($notch = 'left') {
+        $this->notch = $notch;
+    }
+
     /**
      * Get the view / contents that represent the component.
      *
@@ -13,6 +19,6 @@ class Input extends Component
      */
     public function render()
     {
-        return view('question::components.input');
+        return view('question::components.tooltip');
     }
 }

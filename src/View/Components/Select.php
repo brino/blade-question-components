@@ -2,23 +2,17 @@
 
 namespace BladeQuestions\View\Components;
 
-class Select extends Question
+use Illuminate\View\Component;
+
+class Select extends Component
 {
-    protected $view = 'select';
-
-    public $options;
-
     /**
-     * Select constructor.
+     * Get the view / contents that represent the component.
      *
-     * @param $label
-     * @param array $options
-     * @param null $parent
-     * @param null $name
+     * @return \Illuminate\Contracts\View\View|string
      */
-    public function __construct($label, array $options, $parent=null, $name=null)
+    public function render()
     {
-        parent::__construct($label, $parent, $name);
-        $this->options = $options;
+        return view('question::components.select');
     }
 }

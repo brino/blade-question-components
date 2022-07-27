@@ -1,10 +1,10 @@
 <?php
 
-namespace BladeQuestions\View\Components;
+namespace BladeQuestions\View\Components\Questions;
 
-class Checkbox extends Question
+class Radio extends Question
 {
-    protected $view = 'checkbox';
+    protected $view = 'radio';
 
     public $choices;
 
@@ -14,6 +14,7 @@ class Checkbox extends Question
      * @param $label
      * @param array $choices
      * @param null $parent
+     * @param null $tooltip
      * @param null $name
      */
     public function __construct($label, array $choices, $parent=null, $tooltip=null, $name=null)

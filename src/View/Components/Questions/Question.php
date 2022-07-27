@@ -1,6 +1,6 @@
 <?php
 
-namespace BladeQuestions\View\Components;
+namespace BladeQuestions\View\Components\Questions;
 
 use Illuminate\Support\Str;
 use Illuminate\View\Component;
@@ -42,6 +42,6 @@ abstract class Question extends Component
      */
     public function render()
     {
-        return view('components.'.$this->view);
+        return view('question::components.questions.'.$this->view);
     }
 }

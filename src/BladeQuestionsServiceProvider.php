@@ -2,32 +2,38 @@
 
 namespace BladeQuestions;
 
-use BladeQuestions\View\Components\Checkbox;
-use BladeQuestions\View\Components\Input;
-use BladeQuestions\View\Components\Radio;
-use BladeQuestions\View\Components\Select;
+use BladeQuestions\View\Components\Questions\Checkbox;
+use BladeQuestions\View\Components\Questions\Input;
+use BladeQuestions\View\Components\Input as FormInput;
+use BladeQuestions\View\Components\Label as FormLabel;
+use BladeQuestions\View\Components\Questions\Radio;
+use BladeQuestions\View\Components\Questions\Select;
+use BladeQuestions\View\Components\Select as FormSelect;
+use BladeQuestions\View\Components\Tooltip as FormTooltip;
 use Illuminate\Support\ServiceProvider;
 
 class BladeQuestionsServiceProvider extends ServiceProvider
 {
-    /**
-     * @var string
-     */
-    private const PATH_VIEWS = __DIR__ . '../resources/views/';
-
     public function boot(): void
     {
-        $this->loadViewComponentsAs('question', $this->viewComponents());
-    }
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'question');
 
-    protected function viewComponents(): array
-    {
-        return [
-            Checkbox::class,
-            Radio::class,
-            Input::class,
-            Select::class,
-        ];
-    }
+        $this->publishes([
+            __DIR__.'/../resources/views' => resource_path('views/vendor/blade-questions'),
+        ]);
 
+        $this->loadViewComponentsAs('question', [
+            'checkbox' => Checkbox::class,
+            'radio' => Radio::class,
+            'input' => Input::class,
+            'select' => Select::class,
+        ]);
+
+        $this->loadViewComponentsAs('form', [
+            'input' => FormInput::class,
+            'select' => FormSelect::class,
+            'label' => FormLabel::class,
+            'tooltip' => FormTooltip::class,
+        ]);
+    }
 }
