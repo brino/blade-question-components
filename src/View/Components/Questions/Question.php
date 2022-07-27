@@ -21,27 +21,28 @@ abstract class Question extends Component
      * Question constructor.
      *
      * @param $label
-     * @param null $parent
+     * @param null $value
      * @param null $tooltip
      * @param null $name
      */
-    public function __construct($label, $parent=null, $tooltip=null, $name=null)
+    public function __construct($label, $value=null, $tooltip=null, $name=null)
     {
+        dump($value);
 
         $this->label = $label;
         $this->tooltip = $tooltip;
         $this->name = $name ?? Str::snake(str_replace(['!','?','.',',','-'],'',$label));
-        if(isset($parent->{$this->name})) {
-            $this->value = $parent->{$this->name};
+        if(!empty($value) && is_object($value) && isset($value->{$this->name})) {
+            $this->value = $value->{$this->name};
         } else {
-            $this->value = old($this->name) ?? request($this->name);
+            $this->value = old($this->name) ?? request($this->name) ?? $value;
+        }
 
-            if(is_numeric($this->value)) {
-                if(strpos($this->value,'.')) {
-                    $this->value = (float) $this->value;
-                }
-                $this->value = (integer) $this->value;
+        if(is_numeric($this->value)) {
+            if(strpos($this->value,'.')) {
+                $this->value = (float) $this->value;
             }
+            $this->value = (integer) $this->value;
         }
     }
 

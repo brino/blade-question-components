@@ -11,13 +11,13 @@ class Input extends Question
      *
      * @param $label
      * @param string $type
-     * @param null $parent
+     * @param null $value
      * @param null $tooltip
      * @param null $name
      */
-    public function __construct($label, $type='text', $parent=null, $tooltip=null, $name=null)
+    public function __construct($label, $type='text', $value=null, $tooltip=null, $name=null)
     {
-        parent::__construct($label, $parent, $tooltip, $name);
+        parent::__construct($label, $value, $tooltip, $name);
         $this->type = $type;
     }
 }

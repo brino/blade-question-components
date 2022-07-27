@@ -13,13 +13,13 @@ class Radio extends Question
      *
      * @param $label
      * @param array $choices
-     * @param null $parent
+     * @param null $value
      * @param null $tooltip
      * @param null $name
      */
-    public function __construct($label, array $choices, $parent=null, $tooltip=null, $name=null)
+    public function __construct($label, array $choices, $value=null, $tooltip=null, $name=null)
     {
-        parent::__construct($label, $parent, $tooltip, $name);
+        parent::__construct($label, $value, $tooltip, $name);
         $this->choices = $choices;
     }
 }

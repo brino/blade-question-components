@@ -13,12 +13,12 @@ class Select extends Question
      *
      * @param $label
      * @param array $options
-     * @param null $parent
+     * @param null $value
      * @param null $name
      */
-    public function __construct($label, array $options, $parent=null, $name=null)
+    public function __construct($label, array $options, $value=null, $name=null)
     {
-        parent::__construct($label, $parent, $name);
+        parent::__construct($label, $value, $name);
         $this->options = $options;
     }
 }

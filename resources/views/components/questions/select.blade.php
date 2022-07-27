@@ -1,5 +1,3 @@
-@props(['disabled' => false])
-
 <div class="w-full p-3 flex flex-col">
     <x-form-label :for="$name" :value="__($label)" :tooltip="$tooltip ?? null" :class="$errors->has($name) ? 'text-red-600' : ''"></x-form-label>
 
