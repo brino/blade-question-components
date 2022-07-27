@@ -1,0 +1,36 @@
+{
+    "name": "brino/blade-questions",
+    "description": "Laravel Blade Form Components",
+    "keywords": [
+        "Laravel",
+        "Blade",
+        "Template",
+        "Form",
+        "Component"
+    ],
+    "license": "MIT",
+    "homepage": "https://brino.github.io/blade-questions/",
+    "authors": [
+        {
+            "name": "Brian Mix",
+            "email": "mix.brian@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "illuminate/support": "^8.0|^9.0",
+        "illuminate/view": "^8.0|^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "BladeQuestions\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "BladeQuestions\\BladeQuestionsServiceProvider"
+            ]
+        }
+    }
+}
