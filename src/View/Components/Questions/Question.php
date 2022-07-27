@@ -27,15 +27,13 @@ abstract class Question extends Component
      */
     public function __construct($label, $value=null, $tooltip=null, $name=null)
     {
-        dump($value);
-
         $this->label = $label;
         $this->tooltip = $tooltip;
         $this->name = $name ?? Str::snake(str_replace(['!','?','.',',','-'],'',$label));
         if(!empty($value) && is_object($value) && isset($value->{$this->name})) {
             $this->value = $value->{$this->name};
         } else {
-            $this->value = old($this->name) ?? request($this->name) ?? $value;
+            $this->value = old($this->name) ?? $value;
         }
 
         if(is_numeric($this->value)) {
