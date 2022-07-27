@@ -2,11 +2,16 @@
 
 _Laravel Blade Components for Quickly making forms_
 
-## License
+## Requirements
 
-BladeQuestions is released under the MIT Open Source License, <https://opensource.org/licenses/MIT>
+ * Laravel 8 or 9
+ * PHP 7 or 8
 
-## Examples
+## Installation
+
+`composer require brino/blade-questions`
+
+## Usage Examples
 
 ```html
 <x-questions-input label="Owner" :parent="$settings" placeholder="username"></x-questions-input>
@@ -17,3 +22,7 @@ BladeQuestions is released under the MIT Open Source License, <https://opensourc
 
 <x-questions.radio :choices="[1=>'Yes', 0=>'No']" :parent="$settings" label="Calculate Formulas (optional)" name="calculate_formulas" tooltip="Pre-calculation of formulas in non-text file spreadsheets"></x-questions.radio>
 ```
+
+## License
+
+BladeQuestions is released under the MIT Open Source License, <https://opensource.org/licenses/MIT>
