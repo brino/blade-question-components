@@ -11,7 +11,7 @@ BladeQuestions is released under the MIT Open Source License, <https://opensourc
 ```html
 <x-questions-input label="Owner" :parent="$settings" placeholder="username"></x-questions-input>
 
-<x-question-select label="Status" :options="[1 => 'Stock', 2 => 'Distribution']" selected="1"></x-question-select>
+<x-question-select label="Status" :options="[1 => 'Stock', 2 => 'Distribution']"></x-question-select>
 
 <x-question-checkbox :choices="[1=>'Distribution', 2=>'Stock']" label="Status"></x-question-checkbox>
 
