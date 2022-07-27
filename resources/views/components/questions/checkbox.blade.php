@@ -3,7 +3,7 @@
     <div class="flex flex-row">
         @foreach($choices as $val => $choice)
             <div class="flex flex-row p-4">
-                <x-form-input id="{{ $name.'-'.Str::snake($choice) }}" class="{{ $errors->has($name) ? 'border-red-600' : '' }}" type="checkbox" name="{{ $name }}" value="{{ $val }}" {{ $attributes->merge($value === $val || old($name) === $val ? ['checked'=>'checked'] : []) }}></x-form-input>
+                <x-form-input id="{{ $name.'-'.Str::snake($choice) }}" class="{{ $errors->has($name) ? 'border-red-600' : '' }}" type="checkbox" :name="$name.'[]'" :value="$val" {{ $attributes->merge(collect($value)->contains($val) ? ['checked'=>'checked'] : []) }}></x-form-input>
                 <x-form-label for="{{ $name.'-'.Str::snake($choice) }}" class="ml-1 {{ $errors->has($name) ? 'text-red-600' : '' }}" :value="__($choice)"></x-form-label>
             </div>
         @endforeach

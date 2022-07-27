@@ -27,11 +27,21 @@ abstract class Question extends Component
      */
     public function __construct($label, $parent=null, $tooltip=null, $name=null)
     {
+
         $this->label = $label;
         $this->tooltip = $tooltip;
         $this->name = $name ?? Str::snake(str_replace(['!','?','.',',','-'],'',$label));
         if(isset($parent->{$this->name})) {
             $this->value = $parent->{$this->name};
+        } else {
+            $this->value = old($this->name) ?? request($this->name);
+
+            if(is_numeric($this->value)) {
+                if(strpos($this->value,'.')) {
+                    $this->value = (float) $this->value;
+                }
+                $this->value = (integer) $this->value;
+            }
         }
     }
 
