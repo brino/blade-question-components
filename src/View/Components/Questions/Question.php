@@ -30,17 +30,29 @@ abstract class Question extends Component
         $this->label = $label;
         $this->tooltip = $tooltip;
         $this->name = $name ?? Str::snake(str_replace(['!','?','.',',','-'],'',$label));
+
+        //set current value
         if(!empty($value) && is_object($value) && isset($value->{$this->name})) {
+
             $this->value = $value->{$this->name};
+
         } else {
+
             $this->value = old($this->name) ?? $value;
+
         }
 
+        //typecast numeric strings
         if(is_numeric($this->value)) {
+
             if(strpos($this->value,'.')) {
+
                 $this->value = (float) $this->value;
+
             }
+
             $this->value = (integer) $this->value;
+
         }
     }
 
@@ -51,6 +63,8 @@ abstract class Question extends Component
      */
     public function render()
     {
+
         return view('question::components.questions.'.$this->view);
+
     }
 }
