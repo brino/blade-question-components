@@ -2,14 +2,6 @@
 
 namespace BladeQuestions;
 
-use BladeQuestions\View\Components\Questions\Checkbox;
-use BladeQuestions\View\Components\Questions\Input;
-use BladeQuestions\View\Components\Input as FormInput;
-use BladeQuestions\View\Components\Label as FormLabel;
-use BladeQuestions\View\Components\Questions\Radio;
-use BladeQuestions\View\Components\Questions\Select;
-use BladeQuestions\View\Components\Select as FormSelect;
-use BladeQuestions\View\Components\Tooltip as FormTooltip;
 use Illuminate\Support\ServiceProvider;
 
 class BladeQuestionsServiceProvider extends ServiceProvider
@@ -23,17 +15,17 @@ class BladeQuestionsServiceProvider extends ServiceProvider
         ]);
 
         $this->loadViewComponentsAs('question', [
-            'checkbox' => Checkbox::class,
-            'radio' => Radio::class,
-            'input' => Input::class,
-            'select' => Select::class,
+            'checkbox' => \BladeQuestions\View\Components\Questions\Checkbox::class,
+            'radio' => \BladeQuestions\View\Components\Questions\Radio::class,
+            'input' => \BladeQuestions\View\Components\Questions\Input::class,
+            'select' => \BladeQuestions\View\Components\Questions\Select::class,
         ]);
 
         $this->loadViewComponentsAs('form', [
-            'input' => FormInput::class,
-            'select' => FormSelect::class,
-            'label' => FormLabel::class,
-            'tooltip' => FormTooltip::class,
+            'input' => \BladeQuestions\View\Components\Input::class,
+            'select' => \BladeQuestions\View\Components\Select::class,
+            'label' => \BladeQuestions\View\Components\Label::class,
+            'tooltip' => \BladeQuestions\View\Components\Tooltip::class,
         ]);
     }
 }

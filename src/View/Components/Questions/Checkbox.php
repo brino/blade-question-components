@@ -9,12 +9,11 @@ class Checkbox extends Question
     public $choices;
 
     /**
-     * Radio constructor.
-     *
      * @param $label
      * @param array $choices
-     * @param null $parent
-     * @param null $name
+     * @param $parent
+     * @param $tooltip
+     * @param $name
      */
     public function __construct($label, array $choices, $parent=null, $tooltip=null, $name=null)
     {
