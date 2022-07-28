@@ -1,4 +1,4 @@
-<div class="w-full p-3 flex flex-col">
+<div class="w-full p-3">
     <x-form-label :for="$name" :value="__($label)" :tooltip="$tooltip ?? null" :class="$errors->has($name) ? 'text-red-600' : ''"></x-form-label>
 
     <x-form-select :id="$name" :name="$name" :class="$errors->has($name)?' text-red-600 border-red-600':''">

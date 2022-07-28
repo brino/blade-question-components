@@ -7,13 +7,13 @@ use Illuminate\View\Component;
 
 abstract class Question extends Component
 {
-    public string $name;
+    public $name;
 
-    public mixed $value;
+    public $value;
 
-    public string $label;
+    public $label;
 
-    public string $tooltip;
+    public $tooltip;
 
     protected $view = 'input';
 
